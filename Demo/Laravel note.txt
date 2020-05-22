@@ -1,2 +1,0 @@
-Tạo Project Laravel: composer create-project --prefer-dist laravel/laravel blog
-Khởi động Serve: php artisan serve
