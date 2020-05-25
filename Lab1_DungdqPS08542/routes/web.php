@@ -13,6 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'home@index');
+Route::get('/product', 'product@index');
+Route::get('/product/{id}', 'product@delail');
