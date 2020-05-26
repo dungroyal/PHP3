@@ -24,13 +24,13 @@
                     <div class="img-big-wrap">
                     </div> 
                     <div class="img-small-wrap">
-                        <div class="item-gallery"> <img src="{{ asset('images') }}/hammer.png" width="100%" style="padding: 100px;">> </div>
+                        <div class="item-gallery"> <img src="{{ asset('images') }}/{{$productdetail -> imageUrl}}" width="100%" style="padding: 100px;">> </div>
                     </div>
                 </article>
             </aside>
             <aside class="col-sm-7">
                 <article class="card-body p-5">
-                    <h3 class="title mb-3">Búa tạ</h3>
+                <h3 class="title mb-3">{{$productdetail->productName}}</h3>
 
                     <p class="price-detail-wrap">
                         <span class="price h3 text-warning">
