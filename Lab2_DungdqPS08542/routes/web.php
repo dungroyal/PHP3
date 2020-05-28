@@ -14,5 +14,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'home@index');
-Route::get('/product', 'product@index');
-Route::get('/product/{id}', 'product@delail');
+Route::get('/flight', 'flights@index');
+Route::get('/flight/{id}', 'flights@passengers');
