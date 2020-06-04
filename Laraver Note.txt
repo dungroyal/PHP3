@@ -1,3 +1,3 @@
-Tạo Project: composer create-project --prefer-dist laravel/laravel blog
-Khởi tạo Server: php artisan serve
-Tạo Controller: php artisan make:controller home
+composer create-project --prefer-dist laravel/laravel blog
+php artisan serve
+php artisan make:controller home
