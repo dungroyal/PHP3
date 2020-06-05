@@ -31,7 +31,7 @@
     @foreach ($list_products as $pro)
     <div class="col-lg-3 col-md-6 mb-4">
         <div class="card h-100">
-            <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+            <a href="#"><img class="card-img-top" src="{{ asset('images') }}/{{$pro->images}}" alt="" style="height: 300px;"></a>
             <div class="card-body">
                 <h6 class="card-title">
                     <a href="#">{{$pro->nameProduct}}</a>
@@ -40,7 +40,7 @@
                 <p class="card-text">{{$pro->authorProduct}}</p>
             </div>
             <div class="card-footer">
-                <center><a href="/product/{{{$pro->idProduct}}}">Chi tiết</a></center>
+            <center><a href="/product/{{{$pro->idProduct}}}">Chi tiết</a></center>
             </div>
         </div>
     </div>

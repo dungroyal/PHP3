@@ -17,9 +17,16 @@ class productController extends Controller
 
     function detail($id)
     {
-        return 'heheh';
-        // $products=product::all();
-        // $catalogs=catalog::all();
-        // return view('home.product',['list_products'=>$products,'list_catalog'=>$catalogs]);
+        $catalogs=catalog::all();
+        $products=product::where('idProduct',$id)->get();
+        return view('home.productdetail',['product'=>$products[0],'list_catalog'=>$catalogs]);
+    }
+
+    function product_by_id($id)
+    {
+        $catalogs=catalog::all();
+        $products=product::where('idCategory',$id)->get();
+        $infoC=catalog::where('idCategory',$id)->get();
+        return view('home.product',['list_products'=>$products,'list_catalog'=>$catalogs,'nameCategory'=>$infoC[0]]);
     }
 }

@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <div class="container">
-        <a class="navbar-brand" href="index.html">Royal Book</a>
+        <a class="navbar-brand" href="/">Royal Book</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
       </button>
@@ -12,9 +12,6 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/product">Sản phẩm</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/">Đăng nhập</a>
                 </li>
             </ul>
 
