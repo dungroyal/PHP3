@@ -11,13 +11,10 @@
                     <a class="nav-link active" href="/">Trang chủ</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/">Categories</a>
+                    <a class="nav-link" href="/product">Sản phẩm</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/">Product</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/">Contact</a>
+                    <a class="nav-link" href="/">Đăng nhập</a>
                 </li>
             </ul>
 

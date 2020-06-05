@@ -40,7 +40,7 @@
                 <p class="card-text">{{$pro->authorProduct}}</p>
             </div>
             <div class="card-footer">
-                <center><a href="#">Mua Ngay</a></center>
+                <center><a href="/product/{{{$pro->idProduct}}}">Chi tiết</a></center>
             </div>
         </div>
     </div>

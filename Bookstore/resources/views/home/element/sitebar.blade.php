@@ -1,17 +1,16 @@
 <div class="card mt-4">
     <article class="card-group-item">
-        <header class="card-header"><h6 class="title">Similar category </h6></header>
+        <header class="card-header"><h6 class="title" id="title-side-bar">DANH MỤC SÁCH</h6></header>
         <div class="filter-content">
             <div class="list-group list-group-flush">
-                <a href="#" class="list-group-item">Cras justo odio <span class="float-right badge badge-light round">142</span> </a>
-                <a href="#" class="list-group-item">Dapibus ac facilisis  <span class="float-right badge badge-light round">3</span>  </a>
-                <a href="#" class="list-group-item">Morbi leo risus <span class="float-right badge badge-light round">32</span>  </a>
-                <a href="#" class="list-group-item">Another item <span class="float-right badge badge-light round">12</span>  </a>
-            </div>  <!-- list-group .// -->
+				@foreach ($list_catalog as $cat)
+					<a href="/detail/{{$cat->idCategory}}" class="list-group-item">{{$cat->nameCategory}}<span class="float-right badge badge-light round">142</span> </a>
+				@endforeach
+            </div>
         </div>
-    </article> <!-- card-group-item.// -->
+    </article>
 </div>
-
+{{-- 
 <div class="card mt-4">
     <article class="card-group-item">
 		<header class="card-header">
@@ -23,7 +22,7 @@
 					<span class="float-right badge badge-light round">52</span>
 				  	<input type="checkbox" class="custom-control-input" id="Check1">
 				  	<label class="custom-control-label" for="Check1">Samsung</label>
-				</div> <!-- form-check.// -->
+				</div>
 
 				<div class="custom-control custom-checkbox">
 					<span class="float-right badge badge-light round">132</span>
@@ -45,12 +44,12 @@
 			</div> <!-- card-body.// -->
 		</div>
 	</article>
-</div>
+</div> --}}
 
 <div class="card mt-4">
     <article class="card-group-item">
 		<header class="card-header">
-			<h6 class="title">Range input </h6>
+			<h6 class="title"  id="title-side-bar">ĐĂNG NHẬP</h6>
 		</header>
 		<div class="filter-content">
 			<div class="card-body">
