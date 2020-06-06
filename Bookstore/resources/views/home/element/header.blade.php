@@ -15,11 +15,12 @@
                 </li>
             </ul>
 
-            <form class="form-inline my-2 my-lg-0">
+            <form method="post" action="/search" class="form-inline my-2 my-lg-0">
+                @csrf
                 <div class="input-group input-group-sm">
-                    <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder="Search...">
+                    <input type="text" class="form-control" name="keyword" aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder= @if ($errors->has('keyword')) "Chưa nhập từ khóa" @else "Tìm kiếm ..." @endif>
                     <div class="input-group-append">
-                        <button type="button" class="btn btn-secondary btn-number">
+                        <button type="submit" class="btn btn-secondary btn-number">
                           <i class="fa fa-search"></i>
                       </button>
                     </div>

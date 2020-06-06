@@ -46,4 +46,5 @@
     </div>
     @endforeach
 </div>
+{{$list_products->links()}}
 @endsection

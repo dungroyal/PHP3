@@ -8,6 +8,7 @@
         @else
         Tất cả thể loại</h5>
     @endif
+    @if (isset($keyword)) {{$keyword}} @endif
 <div class="row mt-4">
 
     @foreach ($list_products as $pro)
@@ -29,4 +30,5 @@
     @endforeach
 </div>
 </div>
+    {{$list_products->links()}}
 @endsection

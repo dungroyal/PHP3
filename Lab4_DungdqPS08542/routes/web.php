@@ -22,5 +22,7 @@ Route::post('/flight/store','flightController@store');
 Route::get('/flight/edit/{id}','flightController@edit');
 Route::get('/flight/del/{id}','flightController@del');
 Route::post('/flight/update/{id}','flightController@update');
+
 Route::get('/login','loginController@index');
+Route::post('/check','loginController@login');
 
