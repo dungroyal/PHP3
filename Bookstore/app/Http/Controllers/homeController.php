@@ -24,5 +24,6 @@ class homeController extends Controller
             'password'=>['required']
          ]);
         return 'Đăng nhập thành công';
+        
     }
 }

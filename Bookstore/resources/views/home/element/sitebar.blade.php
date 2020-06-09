@@ -3,15 +3,13 @@
         <header class="card-header"><h6 class="title" id="title-side-bar">DANH MỤC SÁCH</h6></header>
         <div class="filter-content">
             <div class="list-group list-group-flush">
-				<a href="/product" class="list-group-item">Tất cả thể loại @if (isset($keyword)) {{$keyword}}
-					
-				@endif</a>
+				<a href="/product" class="list-group-item">Tất cả thể loại </a>
 				@foreach ($list_catalog as $cat)
 					<a href="/category/{{$cat->idCategory}}" class="list-group-item">{{$cat->nameCategory}}</a>
 				@endforeach
             </div>
         </div>
-    </article>
+	</article>
 </div>
 
 <div class="card mt-4 mb-5">

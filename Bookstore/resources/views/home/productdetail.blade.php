@@ -24,7 +24,15 @@
 					</div>
 					<div class="details col-md-6">
 						<h3 class="product-title">{{$product->nameProduct}}</h3>
+						<p class="product-description">{{$product->sortDescription}}</p>
+						<h4 class="price">Giá: <span>{{{number_format($product->priceProduct)}}} ₫</span></h4>
+						<p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p>
+						<div class="action">
+							<button class="add-to-cart btn btn-default" type="button">Thêm vào giỏ hàng</button>
+							<button class="like btn btn-default" type="button"><span class="fa fa-heart"></span></button>
+						</div>
 						<div class="rating">
+							<h4>Đánh giá sản phẩm</h4>
 							<div class="stars">
 								<span class="fa fa-star checked"></span>
 								<span class="fa fa-star checked"></span>
@@ -34,12 +42,30 @@
 							</div>
 							<span class="review-no">41 reviews</span>
 						</div>
-						<p class="product-description">{{$product->sortDescription}}</p>
-						<h4 class="price">Giá: <span>{{{number_format($product->priceProduct)}}} ₫</span></h4>
-						<p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p>
-						<div class="action">
-							<button class="add-to-cart btn btn-default" type="button">Thêm vào giỏ hàng</button>
-							<button class="like btn btn-default" type="button"><span class="fa fa-heart"></span></button>
+						<div class="col-md-12 p-0">
+							<form method="post" action="/vote/{{$product->idProduct}}" id="demo">
+								@csrf
+							  <div class="form-group">
+								<label for="lastName">Họ và tên</label>
+								<input type="text" class="form-control" id="lastName" name="fullName">
+							  </div>
+							  <div class="form-group">
+								<label for="email">Email</label>
+								<input type="text" class="form-control" id="email" name="email">
+							  </div>
+							  <div class="form-group">
+								<label for="comments">Đánh giá</label>
+								<textarea class="form-control" id="comments" name="comments"></textarea>
+							  </div>
+							  <div class="form-group" id="rating">
+								<label for="rating">Rating</label>
+							  </div>
+							  <input type="hidden" class="form-group" name="vote" id="vote_star" value="">
+
+							  <button type="submit" class="btn btn-primary btn-block">Đánh giá
+								  <span class="review-text" style="display:none"><span id="starCount"></span></span>
+								 </button>
+							</form>
 						</div>
 					</div>
 				</div>

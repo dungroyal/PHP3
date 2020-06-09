@@ -8,26 +8,27 @@ use App\catalog;
 
 class productController extends Controller
 {
+    function __construct()
+    {
+        $this->catalogs=catalog::all();
+    }
     function index()
     {
         $products=product::paginate(4);
-        $catalogs=catalog::all();
-        return view('home.product',['list_products'=>$products,'list_catalog'=>$catalogs]);
+        return view('home.product',['list_products'=>$products,'list_catalog'=>$this->catalogs]);
     }
 
     function detail($id)
     {
-        $catalogs=catalog::all();
         $products=product::where('idProduct',$id)->get();
-        return view('home.productdetail',['product'=>$products[0],'list_catalog'=>$catalogs]);
+        return view('home.productdetail',['product'=>$products[0],'list_catalog'=>$this->catalogs]);
     }
 
     function product_by_id($id)
     {
-        $catalogs=catalog::all();
         $products=product::where('idCategory',$id)->paginate(4);
         $get_name_catalog=catalog::where('idCategory',$id)->get();
-        return view('home.product',['list_products'=>$products,'list_catalog'=>$catalogs,'nameCategory'=>$get_name_catalog[0]]);
+        return view('home.product',['list_products'=>$products,'list_catalog'=>$this->catalogs,'nameCategory'=>$get_name_catalog[0]]);
     }
 
     function search(Request $request)
@@ -36,10 +37,19 @@ class productController extends Controller
             'keyword'=>['required']
          ]);
          
-        $catalogs=catalog::all();
         $keyword=$request->keyword;
         $products=product::where('nameProduct', 'LIKE', '%' . $keyword . '%')->paginate(4);
 
-        return view('home.product',['list_products'=>$products,'list_catalog'=>$catalogs,'keyword'=>$keyword]);
+        return view('home.product',['list_products'=>$products,'list_catalog'=>$this->catalogs,'keyword'=>$keyword]);
+        }
+
+    function vote(Request $request,$id)
+    {
+         $request->validate([
+            'fullName'=>['required'],
+            'email'=>['required'],
+            'comments'=>['required']
+         ]);
+        return redirect('/product/'.$id);
         }
 }
