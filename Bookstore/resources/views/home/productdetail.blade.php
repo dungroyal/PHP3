@@ -4,7 +4,7 @@
 <div class="row mt-4 mb-5">
 			<div class="container-fliud">
 				<div class="wrapper row">
-					<div class="preview col-md-6">
+					<div class="preview col-md-6 p-5">
 						
 						<div class="preview-pic tab-content">
 						  <div class="tab-pane active" id="pic-1"><img src="{{ asset('images') }}/{{$product->images}}" /></div>

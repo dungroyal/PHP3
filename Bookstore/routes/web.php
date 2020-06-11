@@ -9,6 +9,7 @@ Route::get('/category/{id}', 'productController@product_by_id');
 Route::post('/login', 'homeController@login');
 Route::post('/search', 'productController@search');
 Route::post('/vote/{id}', 'productController@vote');
+Route::get('/addToCart/{id}', 'cartController@addToCart');
 
 
 

@@ -10,7 +10,6 @@ class homeController extends Controller
 {
     function index()
     {
-        // $products=product::all();
         $products=product::paginate(4);
         $catalogs=catalog::all();
         return view('home.index',['list_products'=>$products,'list_catalog'=>$catalogs]);

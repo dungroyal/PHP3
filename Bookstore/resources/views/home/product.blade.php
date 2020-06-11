@@ -10,24 +10,27 @@
     @endif
     @if (isset($keyword)) {{$keyword}} @endif
 <div class="row mt-4">
-
     @foreach ($list_products as $pro)
-    <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card h-100">
-            <a href="#"><img class="card-img-top" src="{{ asset('images') }}/{{$pro->images}}" alt="" style="height: 300px;"></a>
-            <div class="card-body">
-                <h6 class="card-title">
-                    <a href="#">{{$pro->nameProduct}}</a>
-                </h6>
-                <h6>{{ number_format($pro->priceProduct)}} ₫</h6>
-                <p class="card-text">{{$pro->authorProduct}}</p>
+    <div class="col-md-3 col-sm-6 mb-3">
+        <div class="product-grid6">
+            <div class="product-image6">
+                <a href="/product/{{{$pro->idProduct}}}">
+                    <img class="pic-1" src="{{ asset('images') }}/{{$pro->images}}" style="height: 250px;">
+                </a>
             </div>
-            <div class="card-footer">
-                <center><a href="/product/{{{$pro->idProduct}}}">Chi tiết</a></center>
+            <div class="product-content">
+                <h3 class="title"><a href="#">{{$pro->nameProduct}}</a></h3>
+                <div class="price">{{ number_format($pro->priceProduct)}} ₫
+                </div>
             </div>
+            <ul class="social">
+                <li><a href="/product/{{{$pro->idProduct}}}" data-tip="Xem chi tiết"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
+                <li><a href="/addToCart/{{{$pro->idProduct}}}" data-tip="Thêm giỏ hàng"><i class="fa fa-shopping-cart"></i></a></li>
+            </ul>
         </div>
     </div>
     @endforeach
+
 </div>
 </div>
     {{$list_products->links()}}

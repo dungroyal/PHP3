@@ -14,7 +14,7 @@ class productController extends Controller
     }
     function index()
     {
-        $products=product::paginate(4);
+        $products=product::paginate(8);
         return view('home.product',['list_products'=>$products,'list_catalog'=>$this->catalogs]);
     }
 
@@ -45,11 +45,19 @@ class productController extends Controller
 
     function vote(Request $request,$id)
     {
-         $request->validate([
-            'fullName'=>['required'],
-            'email'=>['required'],
-            'comments'=>['required']
-         ]);
-        return redirect('/product/'.$id);
+        $request->validate([
+        'fullName'=>['required'],
+        'email'=>['required'],
+        'comments'=>['required']
+        ]);
+
+        $fullName=$request->fullName;
+        $email=$request->email;
+        $comments=$request->comments;
+        $vote=$request->vote;
+
+        return $fullName.'<br>'.$email.'<br>'.$comments.'<br>'.$vote;
+         
+        // return redirect('/product/'.$id);
         }
 }
