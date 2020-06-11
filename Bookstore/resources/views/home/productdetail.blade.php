@@ -28,7 +28,7 @@
 						<h4 class="price">Giá: <span>{{{number_format($product->priceProduct)}}} ₫</span></h4>
 						<p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p>
 						<div class="action">
-							<button class="add-to-cart btn btn-default" type="button">Thêm vào giỏ hàng</button>
+							<a href="/addToCart/{{{$product->idProduct}}}"  class="add-to-cart btn btn-default">Thêm vào giỏ hàng</a>
 							<button class="like btn btn-default" type="button"><span class="fa fa-heart"></span></button>
 						</div>
 						<div class="rating">

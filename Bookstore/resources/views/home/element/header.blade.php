@@ -25,9 +25,13 @@
                       </button>
                     </div>
                 </div>
-                <a class="btn btn-success btn-sm ml-3" href="cart.html">
+                <a class="btn btn-success btn-sm ml-3" href="/cart">
                     <i class="fa fa-shopping-cart"></i> Cart
-                    <span class="badge badge-light">3</span>
+                        @if(session()->has('carts'))
+                            <span class="badge badge-light">
+                                {{count(Session::get('carts'))}}
+                            </span>
+                        @endif
                 </a>
             </form>
         </div>

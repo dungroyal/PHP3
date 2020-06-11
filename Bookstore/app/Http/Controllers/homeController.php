@@ -25,4 +25,11 @@ class homeController extends Controller
         return 'Đăng nhập thành công';
         
     }
+
+
+    function cart()
+    {
+        $catalogs=catalog::all();
+        return view('home.cart',['list_catalog'=>$catalogs]);
+    }
 }
