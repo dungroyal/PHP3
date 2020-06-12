@@ -14,6 +14,14 @@ Route::get('/cart', 'homeController@cart');
 
 
 
+
+Route::get('/admin123', 'loginController@login');
+Route::post('/admin123/checklogin', 'loginController@checklogin');
+
+
+
+
+
 // $prefix='product';
 // Route::group(['prefix' => $prefix], function () use($prefix) {
 //     $controller = $prefix.'Controller@';
