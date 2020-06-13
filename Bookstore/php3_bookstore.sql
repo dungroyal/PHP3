@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th6 11, 2020 lúc 07:03 PM
+-- Thời gian đã tạo: Th6 13, 2020 lúc 04:54 AM
 -- Phiên bản máy phục vụ: 10.4.11-MariaDB
 -- Phiên bản PHP: 7.4.2
 
@@ -91,8 +91,8 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(1, '2014_10_12_000000_create_users_table', 1),
-(2, '2019_08_19_000000_create_failed_jobs_table', 1);
+(3, '2014_10_12_000000_create_users_table', 1),
+(4, '2019_08_19_000000_create_failed_jobs_table', 1);
 
 -- --------------------------------------------------------
 
@@ -135,9 +135,19 @@ INSERT INTO `products` (`idProduct`, `nameProduct`, `sortDescription`, `images`,
 --
 
 CREATE TABLE `tbluser` (
-  `user` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `pass` int(20) DEFAULT NULL
+  `id` int(11) NOT NULL,
+  `username` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `password` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `rule` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `tbluser`
+--
+
+INSERT INTO `tbluser` (`id`, `username`, `password`, `rule`) VALUES
+(1, 'admin', '$2y$10$bTyPx.jx6yhP6LJUFHvxueq7SVxgAm00jbrK3r48sy0375mY2K35i', 1),
+(2, 'dungdq', '$2y$10$bTyPx.jx6yhP6LJUFHvxueq7SVxgAm00jbrK3r48sy0375mY2K35i', 0);
 
 -- --------------------------------------------------------
 
@@ -191,6 +201,12 @@ ALTER TABLE `products`
   ADD PRIMARY KEY (`idProduct`);
 
 --
+-- Chỉ mục cho bảng `tbluser`
+--
+ALTER TABLE `tbluser`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Chỉ mục cho bảng `users`
 --
 ALTER TABLE `users`
@@ -223,13 +239,19 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT cho bảng `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT cho bảng `products`
 --
 ALTER TABLE `products`
   MODIFY `idProduct` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT cho bảng `tbluser`
+--
+ALTER TABLE `tbluser`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT cho bảng `users`

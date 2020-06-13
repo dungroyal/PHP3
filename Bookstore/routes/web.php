@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+// ======================= HOME =======================
 Route::get('/', 'homeController@index');
 Route::get('/product', 'productController@index');
 Route::get('/product/{id}', 'productController@detail');
@@ -13,12 +14,10 @@ Route::get('/addToCart/{id}', 'cartController@addToCart');
 Route::get('/cart', 'homeController@cart');
 
 
-
-
+// ======================= ADMIN =======================
 Route::get('/admin123', 'loginController@login');
-Route::post('/admin123/checklogin', 'loginController@checklogin');
-
-
+Route::get('/admin/Dashboard', 'adminController@dashboard');
+Route::post('/admin123/loginSubmit', 'loginController@checklogin');
 
 
 

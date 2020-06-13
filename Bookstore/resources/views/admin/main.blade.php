@@ -183,7 +183,7 @@
                                         </i>
                                 </div>
                                 <div>Hi
-                                    <Strong>CÒN THIẾU SREACH, REGULER, Đổi MK</Strong>
+                                    <Strong>ĐOÀN QUỐC DŨNG</Strong>
                                     <div class="page-title-subheading">Sau đây là tổng quan về Website BookStore của bạn.
                                     </div>
                                 </div>
@@ -280,7 +280,7 @@
                                                                         </div>
                                                                     </div>
                                                                     <div class="widget-content-left flex2">
-                                                                        <div class="widget-heading">Quần sịp</div>
+                                                                        <div class="widget-heading">SÁCH</div>
                                                                         <div class="widget-subheading opacity-7">Web Developer</div>
                                                                     </div>
                                                                 </div>

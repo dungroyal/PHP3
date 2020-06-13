@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class loginController extends Controller
 {
@@ -18,10 +20,13 @@ class loginController extends Controller
             'password'=>['required']
         ]);
 
-        $data=[
-            'email'=>$request->email,
-            'password'=>$request->password
-        ];
-        
+        if (Auth::attempt(['username' => $request['email'], 'password' => $request['password'], 'rule' => 1])) {
+            if (Auth::check()) {
+                session(['admin'=>Auth::user()]);
+                return view('admin.index');
+            } else {
+                return redirect('admin/login');
+            }
+        }
     }
 }

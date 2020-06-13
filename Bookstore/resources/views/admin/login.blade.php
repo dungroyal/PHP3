@@ -15,14 +15,11 @@
   
 </head>
 <body>
-  
-
 <!-- LOGIN CONTAINER -->
 <section class="login-page flex-center-center py-5 bg-light">
-
   <!-- FORM -->
   <div class="w-100 mx-auto px-2" style="max-width: 400px">
-    <form action="/admin123/checklogin" method="post">
+    <form action="/admin123/loginSubmit" method="post">
         @csrf
       <div class="text-center text-gray">
         <h2 class="weight-500 mb-1">ĐĂNG NHẬP</h2>
