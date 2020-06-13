@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Redirect;
 
 class loginController extends Controller
 {
@@ -28,5 +29,11 @@ class loginController extends Controller
                 return redirect('admin/login');
             }
         }
+    }
+
+    function logout()
+    {
+        session()->forget('admin');
+        return redirect('/admin123');
     }
 }

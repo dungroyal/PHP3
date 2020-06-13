@@ -73,7 +73,7 @@
                                         <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
                                             <button type="button" tabindex="0" class="dropdown-item">User Account</button>
                                             <button type="button" tabindex="0" class="dropdown-item">Settings</button>
-                                            <a href="?ctrller=home&act=logout"  style="text-decoration: none;"><button type="button" tabindex="0" class="dropdown-item">Đăng xuất</button></a>
+                                            <a href="{{ Route('logout') }}"  style="text-decoration: none;"><button type="button" tabindex="0" class="dropdown-item">Đăng xuất</button></a>
                                         </div>
                                     </div>
                                 </div>

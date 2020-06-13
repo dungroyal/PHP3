@@ -28,7 +28,7 @@
 </div>
 <div class="row">
 
-    @foreach ($list_products as $pro)
+    @foreach ($list_products  as $pro)
     <div class="col-md-3 col-sm-6 mb-3">
         <div class="product-grid6">
             <div class="product-image6">

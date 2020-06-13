@@ -15,11 +15,10 @@ Route::get('/cart', 'homeController@cart');
 
 
 // ======================= ADMIN =======================
-Route::get('/admin123', 'loginController@login');
+Route::get('/admin123', 'loginController@login')->name('login');
 Route::get('/admin/Dashboard', 'adminController@dashboard');
 Route::post('/admin123/loginSubmit', 'loginController@checklogin');
-
-
+Route::get('/admin123/logout', 'loginController@logout')->name('logout');
 
 // $prefix='product';
 // Route::group(['prefix' => $prefix], function () use($prefix) {
