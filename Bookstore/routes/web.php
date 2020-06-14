@@ -15,18 +15,41 @@ Route::get('/cart', 'homeController@cart');
 
 
 // ======================= ADMIN =======================
-Route::get('/admin123', 'loginController@login')->name('login');
-Route::get('/admin/Dashboard', 'adminController@dashboard');
-Route::post('/admin123/loginSubmit', 'loginController@checklogin');
-Route::get('/admin123/logout', 'loginController@logout')->name('logout');
+
+Route::group(['prefix' => 'admin123'], function () {
+    Route::get('/', 'loginController@login')->name('login');
+    Route::post('/loginSubmit', 'loginController@checklogin');
+    Route::get('/logout', 'loginController@logout')->name('logout');
+    // --------------------------------------------------------------------
+    Route::get('/Dashboard', 'adminController@dashboard')->name('Dashboard');
+
+    // --------------------------------- Product -----------------------------------
+    Route::get('/product', 'adminController@product')->name('admin-product');
+    Route::get('/product/create', 'adminController@creat_product')->name('admin-create_product');
+    Route::post('/product/create/submit', 'adminController@create_product_submit')->name('create_product_submit');
+    Route::get('/product/update/{id}', 'adminController@update_product')->name('admin-update_product');
+    Route::post('/product/update/submit/{id}', 'adminController@update_product_submit');
+    Route::get('/product/delete/{id}', 'adminController@del_product_submit');
+    
+    // --------------------------------- Category -----------------------------------
+    Route::get('/category', 'adminController@catalogs')->name('admin-catalog');
+
+    // --------------------------------- Order -----------------------------------
+    Route::get('/order', 'adminController@order')->name('admin-order');
+
+    // --------------------------------- User -----------------------------------
+    Route::get('/user', 'adminController@user')->name('admin-user');
+});
+
+
+
+
 
 // $prefix='product';
 // Route::group(['prefix' => $prefix], function () use($prefix) {
 //     $controller = $prefix.'Controller@';
 //     Route::get('/',$controller.'index');
 //     Route::get('/product/a',$controller.'detail');
-
-    
 //     Route::get('/'.$prefix.'/edit/{id}',$controller.'form')->where('id','[0-9]+');
 //     Route::get('/'.$prefix.'/delete/{id}',$controller.'delete')->where('id','[0-9]+');
 // });

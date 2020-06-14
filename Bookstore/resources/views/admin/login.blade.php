@@ -51,6 +51,12 @@
                 <p  class="error-login"><i class="fa fa-times-circle" aria-hidden="true"></i> Chưa nhập mật khẩu</p>
             @endif
 
+            @if ($alert = Session::get('error-login-admin'))
+            <div class="alert alert-danger">
+              {{ $alert }}
+            </div>
+          @endif
+
           <!-- REMEMBER ME -->
           <div class="group">
             <div class="custom-checkbox text-left">
@@ -63,9 +69,10 @@
           <div class="group">
               <input  class="btn primary block btn-lg weight-500" type="submit" value="Đăng nhập">
           </div>
-
+          
         </div>
       </div>
+      
 
       <!-- LINKS -->
       <div class="text-center weight-600 text-gray">

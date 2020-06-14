@@ -24,10 +24,10 @@ class loginController extends Controller
         if (Auth::attempt(['username' => $request['email'], 'password' => $request['password'], 'rule' => 1])) {
             if (Auth::check()) {
                 session(['admin'=>Auth::user()]);
-                return view('admin.index');
-            } else {
-                return redirect('admin/login');
+                return redirect('/admin123/Dashboard');
             }
+        } else {
+            return redirect('/admin123')->with('error-login-admin', 'Sai tên đăng nhập hoặc mật khẩu.');
         }
     }
 

@@ -24614,3 +24614,10 @@ a.fc-more:hover {
 a {
     text-decoration: none;
 }
+
+.mn-active {
+    color: #343a40;
+    background: #e0f3ff;
+    font-weight: bold;
+    border-radius: 3px;
+}

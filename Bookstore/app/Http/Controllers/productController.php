@@ -18,17 +18,17 @@ class productController extends Controller
         return view('home.product',['list_products'=>$products,'list_catalog'=>$this->catalogs]);
     }
 
-    function detail($id)
-    {
-        $products=product::where('idProduct',$id)->get();
-        return view('home.productdetail',['product'=>$products[0],'list_catalog'=>$this->catalogs]);
-    }
-
     function product_by_id($id)
     {
         $products=product::where('idCategory',$id)->paginate(4);
         $get_name_catalog=catalog::where('idCategory',$id)->get();
         return view('home.product',['list_products'=>$products,'list_catalog'=>$this->catalogs,'nameCategory'=>$get_name_catalog[0]]);
+    }
+
+    function detail($id)
+    {
+        $products=product::where('idProduct',$id)->get();
+        return view('home.productdetail',['product'=>$products[0],'list_catalog'=>$this->catalogs]);
     }
 
     function search(Request $request)

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th6 13, 2020 lúc 08:06 PM
+-- Thời gian đã tạo: Th6 14, 2020 lúc 08:10 PM
 -- Phiên bản máy phục vụ: 10.4.11-MariaDB
 -- Phiên bản PHP: 7.4.2
 
@@ -103,30 +103,24 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 CREATE TABLE `products` (
   `idProduct` int(11) NOT NULL,
   `nameProduct` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
-  `sortDescription` varchar(300) COLLATE utf8_unicode_ci NOT NULL,
+  `NXB` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `images` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
   `Description` varchar(500) COLLATE utf8_unicode_ci NOT NULL,
-  `dateProduct` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `priceProduct` double NOT NULL,
+  `specialPrice` varchar(12) COLLATE utf8_unicode_ci NOT NULL,
   `authorProduct` varchar(300) COLLATE utf8_unicode_ci NOT NULL,
-  `idCategory` int(11) NOT NULL
+  `status` tinyint(1) NOT NULL DEFAULT 1,
+  `idCategory` int(11) NOT NULL,
+  `dateProduct` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `products`
 --
 
-INSERT INTO `products` (`idProduct`, `nameProduct`, `sortDescription`, `images`, `Description`, `dateProduct`, `priceProduct`, `authorProduct`, `idCategory`) VALUES
-(1, '5 Múi Giờ, 10 Tiếng Bay Và Một Cái Khép Mi', '5 Múi Giờ, 10 Tiếng Bay Và Một Cái Khép Mi', '1.jpg', '5 Múi Giờ, 10 Tiếng Bay Và Một Cái Khép Mi', '2020-06-05 17:12:46', 300000, 'Nguyễn Mai Chi ', 2),
-(2, 'Mộng Xưa Thành Cũ', 'Mộng Xưa Thành Cũ', '2.jpg', 'Mộng Xưa Thành Cũ Mộng Xưa Thành Cũ', '2020-06-05 17:11:26', 300000, 'Mặc Mặc An Nhiên ', 2),
-(3, 'Gói Nỗi Buồn Lại Và Ném Đi Thật Xa', 'Gói Nỗi Buồn Lại Và Ném Đi Thật Xa', '3.jpg', 'Gói Nỗi Buồn Lại Và Ném Đi Thật Xa', '2020-06-05 17:11:29', 200000, 'Ngọc Hoài Nhân ', 3),
-(4, 'Gói Nỗi Buồn Lại Và Ném Đi Thật Xa', 'Gói Nỗi Buồn Lại Và Ném Đi Thật Xa', '4.jpg', 'Gói Nỗi Buồn Lại Và Ném Đi Thật Xa', '2020-06-05 17:11:34', 200000, 'Ngọc Hoài Nhân ', 4),
-(5, 'Gói Nỗi Buồn Lại Và Ném Đi Thật Xa', 'Gói Nỗi Buồn Lại Và Ném Đi Thật Xa', '5.jpg', 'Gói Nỗi Buồn Lại Và Ném Đi Thật Xa', '2020-06-05 17:11:37', 200000, 'Ngọc Hoài Nhân ', 5),
-(6, 'Gói Nỗi Buồn Lại Và Ném Đi Thật Xa', 'Gói Nỗi Buồn Lại Và Ném Đi Thật Xa', '6.jpg', 'Gói Nỗi Buồn Lại Và Ném Đi Thật Xa', '2020-06-05 17:11:39', 200000, 'Ngọc Hoài Nhân ', 6),
-(7, 'Gói Nỗi Buồn Lại Và Ném Đi Thật Xa', 'Gói Nỗi Buồn Lại Và Ném Đi Thật Xa', '7.jpg', 'Gói Nỗi Buồn Lại Và Ném Đi Thật Xa', '2020-06-05 17:12:49', 200000, 'Ngọc Hoài Nhân ', 4),
-(8, 'Gói Nỗi Buồn Lại Và Ném Đi Thật Xa', 'Gói Nỗi Buồn Lại Và Ném Đi Thật Xa', '8.jpg', 'Gói Nỗi Buồn Lại Và Ném Đi Thật Xa', '2020-06-05 17:12:51', 200000, 'Ngọc Hoài Nhân ', 2),
-(9, 'Gói Nỗi Buồn Lại Và Ném Đi Thật Xa', 'Gói Nỗi Buồn Lại Và Ném Đi Thật Xa', '6.jpg', 'Gói Nỗi Buồn Lại Và Ném Đi Thật Xa', '2020-06-05 17:11:39', 200000, 'Ngọc Hoài Nhân ', 2),
-(10, 'Gói Nỗi Buồn Lại Và Ném Đi Thật Xa', 'Gói Nỗi Buồn Lại Và Ném Đi Thật Xa', '3.jpg', 'Gói Nỗi Buồn Lại Và Ném Đi Thật Xa', '2020-06-05 17:11:29', 200000, 'Ngọc Hoài Nhân ', 2);
+INSERT INTO `products` (`idProduct`, `nameProduct`, `NXB`, `images`, `Description`, `priceProduct`, `specialPrice`, `authorProduct`, `status`, `idCategory`, `dateProduct`) VALUES
+(10, 'Gói Nỗi Buồn Lại Và Ném Đi Thật Xa', 'Tuổi trẻ', '3.jpg', 'Gói Nỗi Buồn Lại Và Ném Đi Thật Xa', 200000, '1500000', 'Ngọc Hoài Nhân ', 1, 2, '2020-06-14 16:56:36'),
+(12, 'Cafe cùng Tony', 'Sài gòn', 'ca_phe_cung_tony_tai_ban_2017_1_2018_11_16_11_02_35.jpg', 'Giới thiệu về cậu thanh niên trẻ tuôi....', 150000, '1450020', 'Tony buổi sáng', 0, 4, '2020-06-14 17:31:22');
 
 -- --------------------------------------------------------
 
@@ -245,7 +239,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT cho bảng `products`
 --
 ALTER TABLE `products`
-  MODIFY `idProduct` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `idProduct` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT cho bảng `tbluser`
