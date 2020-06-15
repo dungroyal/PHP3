@@ -21,4 +21,16 @@ $(document).ready(function() {
             $('#demo #vote_star').attr('value', count);
         }
     });
+
+
+    // $('#btn_login').click(function() {
+    //     $('#userName').focus();
+    //     return false;
+    // });
+
+    // $('#userName').focus(function() {
+    //     $('#userName').css('background-color', 'rgba(0, 255, 250, 0.55)');
+    //     $('#userPassword').css('background-color', 'rgba(0, 255, 250, 0.55)');
+    // });
+
 });

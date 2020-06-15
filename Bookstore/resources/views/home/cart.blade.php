@@ -1,62 +1,89 @@
 @extends('home.main')
 @section('content')
-<div class="container mt-4">
-    <div class="card shopping-cart">
-             <div class="card-header bg-dark text-light">
-                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                  Giỏ hàng
-                 <a href="/" class="btn btn-outline-info btn-sm pull-right">Tiếp tục mua hàng</a>
-                 <div class="clearfix"></div>
-             </div>
-             <div class="card-body">
-                     @if(session()->has('carts'))
-                        <span class="badge">
-                            @foreach(Session::get('carts') as $cart)
-                                <div class="row">
-                                    <div class="col-12 col-sm-12 col-md-2 text-center">
-                                            <img class="img-responsive" src="{{ asset('images') }}/{{$cart['images']}}" alt="prewiew" width="80" height="120">
-                                    </div>
-                                    <div class="col-12 text-sm-center col-sm-12 text-md-left col-md-6">
-                                        <h5 class="product-name"><strong>{{$cart['nameProduct']}}</strong></h5>
-                                        <h6>
-                                            <small>Product description</small>
-                                        </h6>
-                                    </div>
-                                    <div class="col-12 col-sm-12 text-sm-center col-md-4 text-md-right row">
-                                        <div class="col-3 col-sm-3 col-md-6 text-md-right" style="padding-top: 5px">
-                                            <h6><strong>{{{number_format($cart['priceProduct'])}}} ₫<span class="text-muted">x</span></strong></h6>
-                                        </div>
-                                        <div class="col-4 col-sm-4 col-md-4">
-                                            <div class="quantity">
-                                                <input type="number"value="{{$cart['quantity']}}"class="qty">
-                                            </div>
-                                        </div>
-                                        <div class="col-2 col-sm-2 col-md-2 text-right">
-                                            <button type="button" class="btn btn-outline-danger btn-xs">
-                                                <i class="fa fa-trash" aria-hidden="true"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <hr>
-                            @endforeach
-                        </span>
-                        @endif
-             <div class="card-footer">
-                 <div class="coupon col-md-5 col-sm-5 no-padding-left pull-left">
-                     <div class="row">
-                         <div class="col-6">
-                             <input type="submit" class="btn btn-default" value="Cập nhật giỏ hàng">
-                         </div>
-                     </div>
-                 </div>
-                 <div class="pull-right" style="margin: 10px">
-                     <a href="" class="btn btn-success pull-right">Thanh toán </a>
-                     <div class="pull-right" style="margin: 5px">
-                        Tổng cộng: <b>50.000 ₫</b>
-                     </div>
-                 </div>
-             </div>
-         </div>
- </div>
+<div class="container mb-4 mt-4">
+    <div class="row">
+            <div class="col-12">
+                <div class="table-responsive">
+                    
+                    <table class="table table-striped">
+                        
+                        @if(session()->has('carts'))
+                        <thead>
+                            <tr>
+                                <th scope="col"> </th>
+                                <th scope="col">Tên sản phẩm</th>
+                                <th scope="col">Đơn giá</th>
+                                <th scope="col" class="text-center">Số lượng</th>
+                                <th scope="col" class="text-right">Thành tiền</th>
+                                <th> </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php $number=0 ?>
+                                @foreach(Session::get('carts') as $cart)
+                                    <tr>
+                                        <td><img src="{{ asset('images') }}/{{$cart['images']}}" width="60px" /> </td>
+                                        <td>
+                                            <a href="/product/{{{$cart['idProduct']}}}">
+                                                <strong>{{$cart['nameProduct']}}</strong> 
+                                                <p>{{$cart['authorProduct']}}</p>
+                                            </a>
+                                        </td>
+                                        <td>{{number_format($cart['priceProduct'])}}</td>
+                                        <td><input id="form-quantity" class="form-control" type="number" value="{{$cart['quantity']}}" /></td>
+                                        <td class="text-right">{{number_format($cart['priceProduct']*$cart['quantity'])}} ₫</td>
+                                        <td class="text-right"><a href="/cart/delete/{{{$cart['idProduct']}}}" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </a></td>
+                                        
+                                        <?php $number+=$cart['priceProduct']*$cart['quantity'] ?>
+
+                                    </tr>
+                                @endforeach
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>Tổng cộng</td>
+                                <td class="text-right" width="120px"> <?=number_format($number);?> ₫</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td width="140px">Phí vận chuyển</td>
+                                <td class="text-right">{{number_format(15000)}} ₫</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td><strong>Tổng tiền</strong></td>
+                                <td class="text-right"><strong><?=number_format($number+15000);?> ₫</strong></td>
+                            </tr>
+                        </tbody>
+                        
+                    @else
+                    <h4>Chưa có sản phẩm nào được chọn:(</h4>
+                @endif
+                                    
+                    </table>
+                </div>
+            </div>
+            <div class="col mb-2">
+                <div class="row">
+                    <div class="col-sm-12  col-md-6">
+                        <a class="btn btn-block btn-dark " href="/product">Tiếp tục mua sắm</a>
+                    </div>
+                    @if(session()->has('carts'))
+                    <div class="col-sm-12 col-md-6 text-right">
+                        <a href="/checkout" class="btn btn-block btn-success text-uppercase">Thanh toán</a>
+                        {{-- <input type="submit" class="btn btn-block btn-success text-uppercase" value="Thanh toán"> --}}
+                    </div>
+                    @endif
+                </div>
+            </div>
+    </div>
+</div>
 @endsection

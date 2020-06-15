@@ -8,11 +8,14 @@ Route::get('/product', 'productController@index');
 Route::get('/product/{id}', 'productController@detail');
 Route::get('/category/{id}', 'productController@product_by_id');
 Route::post('/login', 'homeController@login');
+Route::get('/logout', 'homeController@logout');
 Route::post('/search', 'productController@search');
 Route::post('/vote/{id}', 'productController@vote');
 Route::get('/addToCart/{id}', 'cartController@addToCart');
 Route::get('/cart', 'homeController@cart');
-
+Route::get('/cart/delete/{id}', 'cartController@detete_item_cart');
+Route::get('/checkout', 'cartController@checkout');
+Route::post('/checkout_submit', 'cartController@checkout_submit');
 
 // ======================= ADMIN =======================
 

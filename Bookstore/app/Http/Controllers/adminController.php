@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 use Illuminate\support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 use Illuminate\Http\Request;
 use App\product;
 use App\catalog;
+use App\order;
 
 class adminController extends Controller
 {
@@ -95,8 +97,13 @@ class adminController extends Controller
 
     function order()
     {
-        $products=product::paginate(8);
-        return view('admin.order',['list_products'=>$products,'list_catalog'=>$this->catalogs]);
+        $list_order = DB::table('tbluser')
+            // ->where('rule','=','1')
+            ->join('orderdetail', 'tbluser.id', '=', 'orderdetail.idUser')
+            ->select('orderdetail.*', 'tbluser.*')
+            ->get();
+
+        return view('admin.order',['list_order'=>$list_order]);
     }
 
     function user()

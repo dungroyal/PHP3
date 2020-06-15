@@ -38,8 +38,10 @@
                                 </tr>
                             </thead>
                             <tbody>
+
+                                @foreach ($list_order as $order)
                                     <tr>
-                                        <td class="text-center text-muted"></td>
+                                        <td class="text-center text-muted">{{ $order->id }}</td>
                                         <td>
                                             <div class="widget-content p-0">
                                                 <div class="widget-content-wrapper">
@@ -49,15 +51,15 @@
                                                         </div>
                                                     </div>
                                                     <div class="widget-content-left flex2">
-                                                        <div class="widget-heading">'</div>
+                                                        <div class="widget-heading">{{  $order->fullName }}</div>
                                                         <div class="widget-subheading opacity-7">Web Developer</div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </td>
-                                        <td class="text-center"></td>
-                                        <td class="text-center"></td>
-                                        <td class="text-center">'</td>   
+                                        <td class="text-center">{{ $order->diaChi }}, {{ $order->city }}</td>
+                                        <td class="text-center">{{ $order->phoneNumber }}</td>
+                                        <td class="text-center">{{ $order->dateOrder }}</td>   
                                         <td class="text-center">
                                             <div class="badge badge-danger">Mới</div>
                                         </td>
@@ -65,6 +67,7 @@
                                         <a href="index.php?ctrller=order&act=order-detail&idCustomer='.$order['id'].'"><button type="button" id="PopoverCustomT-1" class="btn btn-primary btn-sm">Chi tiết</button></a>
                                         </td>
                                     </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
