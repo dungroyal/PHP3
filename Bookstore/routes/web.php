@@ -23,7 +23,6 @@ Route::group(['prefix' => 'admin123'], function () {
     Route::get('/', 'loginController@login')->name('login');
     Route::post('/loginSubmit', 'loginController@checklogin');
     Route::get('/logout', 'loginController@logout')->name('logout');
-    // --------------------------------------------------------------------
     Route::get('/Dashboard', 'adminController@dashboard')->name('Dashboard');
 
     // --------------------------------- Product -----------------------------------

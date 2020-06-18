@@ -34,8 +34,7 @@ class adminController extends Controller
     
     function creat_product()
     {
-        $products=product::paginate(8);
-        return view('admin.product.create_product',['list_products'=>$products,'list_catalog'=>$this->catalogs]);
+        return view('admin.product.create_product',['list_catalog'=>$this->catalogs]);
     }
 
     function create_product_submit(Request $request)

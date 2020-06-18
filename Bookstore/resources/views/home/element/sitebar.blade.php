@@ -20,7 +20,7 @@
 				
 				@if(session()->has('user'))
 					<div class="wrapper justify-content-center mb-4 mt-3">
-						<a class="btn btn-primary btn-md" href='/logout'>Đăng xuất {{ Auth::user()->username }} <i class="fa fa-sign-in"></i></a>
+						<a class="btn btn-primary btn-md" href='/logout'>Đăng xuất <i class="fa fa-sign-in"></i></a>
 					</div>
 				@else
 					<form action="/login" method="post">
