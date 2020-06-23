@@ -11,12 +11,5 @@ class product extends Controller
     {
         $product= products::get();
         return response($product,200);
-        // return view('product.products');
     }
-
-    function delail()
-    {
-        return view('product.productdetail');
-    }
-    
 }

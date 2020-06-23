@@ -15,4 +15,3 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'home@index');
 Route::get('/product', 'product@getAllProduct');
-Route::get('/product/{id}', 'product@delail');

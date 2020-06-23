@@ -4,6 +4,16 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
+<script>
+  const request = new XMLHttpRequest();
+  request.open('POST', 'http://127.0.0.1:8000/product');
+  request.send();
+  request.onload() = function() {
+      const data = request.responseText;
+      
+  }
+  console.log('HAHA');
+</script>
 <body>
   <div class="container">
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
@@ -35,15 +45,6 @@
         </thead>
         <tbody>
         <tr>
-              <td>
-                <img src='{{ asset('images') }}/hammer.png' width="50px">
-              </td>
-              <td><a href="product/1">Hammer</a> </td>
-              <td>GDN-123</td>
-              <td>20-12-2019</td>
-              <td>$200</td>
-              <td>3.4</td>
-            </tr>
             <tr>
               <td>
                 <img src='{{ asset('images') }}/saw.jpg' width="50px">
@@ -71,12 +72,3 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>
-<script>
-  const request = new XMLHttpRequest();
-  request.open('POST', 'http://127.0.0.1:8000/product');
-  request.send();
-  request.onload() = function() {
-      const data = request.responseText;
-      console.log('haha');
-  }
-</script>
